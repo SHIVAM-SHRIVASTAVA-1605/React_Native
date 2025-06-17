@@ -1,0 +1,16 @@
+Ract Js
+
+# Advantages of using react js
+1. Single Pagee Application
+2. Search engine optimization
+3. State management
+
+# UseState(takes parameter)
+-> return Array
+
+#useEdffect() 
+-> Two parameter
+    1. Callback Function
+    2. Array
+
+# React Router DOM
