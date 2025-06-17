@@ -1,4 +1,4 @@
-import Demo from './components/Demo'
+// import Demo from './components/Demo'
 import { useState, useEffect } from 'react';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
@@ -36,6 +36,32 @@ import About from './pages/About';
 // }
 
 function App() {
+  // const loading = true
+
+  const [loading, setLoading] = useState(false);
+
+  async function getTodoData() {
+    try {
+      setLoading(true);
+      const response = await fetch("https://jsonplaceholder.typicode.com/todos");
+      const data = await response.json();
+      console.log("Data --> ", data)
+    } catch (error) {
+      setLoading(false);
+      console.log("error --> ", error);
+    }
+  }
+
+  useEffect(() => {
+    getTodoData()
+  }, [])
+
+  if(loading) {
+    return (
+      <h1> Loading </h1>
+    )
+  }
+
   return (
     <BrowserRouter>
       <Routes>
