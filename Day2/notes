@@ -14,3 +14,24 @@ Ract Js
     2. Array
 
 # React Router DOM
+
+--> Difference between link and anchor tag is, that the anchor tag is leads to the page reload, but the Link doesn't reloads.
+
+@JavaScript
+1. How many data types are there is JavaScript
+2. Difference between let, var, and const
+3. Hoisting
+4. Types of function in JavaScript.
+5. Arrow function can be hoisted or not? -> no
+6. Callback function and Higher Order Function?
+7. Promises?
+8. Async Operations. async and await.
+9. Resolve, reject
+10. .then and .catch
+11. Callback hell
+12. Chaining
+
+
+# APIs
+1. Internal -> fetch
+2. External -> axios
