@@ -35,3 +35,17 @@ Ract Js
 # APIs
 1. Internal -> fetch
 2. External -> axios
+
+
+# Higher ordeer Function
+-> takes the one or more function as a parameter, and return a function
+
+# callback function
+-> a function that is passed as an argument to another function, and is intended to be executed after the completion of some operation.
+
+# Map, Filter and Reduce
+-> in map, length(performed array) = length(new array).
+-> In filter, length(performed array) >= length(new array).
+
+# Difference betweeen map and for-each loop
+-> map return new array, and for-each doesn't.

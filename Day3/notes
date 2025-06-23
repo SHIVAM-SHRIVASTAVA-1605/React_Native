@@ -1,0 +1,4 @@
+# Styling in React native
+1. No Css in the react native, it does not exist
+2. stylesheet, import from 'react native'
+3. in
