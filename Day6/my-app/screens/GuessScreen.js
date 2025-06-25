@@ -1,17 +1,30 @@
+import { LinearGradient } from "expo-linear-gradient";
+import { useEffect, useState } from "react";
 import {
   View,
   Text,
+  ImageBackground,
   TextInput,
   StyleSheet,
-  ImageBackground,
   Alert,
 } from "react-native";
-import PrimaryButton from "../components/PrimaryButton";
 import ScreenTitle from "../components/ScreenTitle";
-import { LinearGradient } from "expo-linear-gradient"; // install command needed npx expo install expo-linear-gradient
+import PrimaryButton from "../components/PrimaryButton";
 import { Ionicons } from "@expo/vector-icons";
 
-const StartGameScreen = ({ userNumber, setUserNumber, step, setStep }) => {
+const GuessScreen = ({ userNumber, setStep }) => {
+  const [minValue, setMinValue] = useState(1);
+  const [maxValue, setMaxValue] = useState(100);
+  const [guess, setGuess] = useState(null);
+  function guessTheNumber() {
+    let randomValue =
+      Math.floor(Math.random() * (maxValue - minValue + 1)) + minValue;
+    return randomValue;
+  }
+  useEffect(() => {
+    setGuess(guessTheNumber(minValue, maxValue));
+  }, [userNumber, minValue, maxValue]);
+
   return (
     <View style={{ flex: 1 }}>
       <LinearGradient
@@ -23,19 +36,22 @@ const StartGameScreen = ({ userNumber, setUserNumber, step, setStep }) => {
           style={{ flex: 1 }}
           imageStyle={{ opacity: 0.15 }}
         >
-          <ScreenTitle children={"Guess The Number"} />
+          <ScreenTitle children={"Opponent's Guess"} />
 
           <View style={styles.inputContainer}>
-            <TextInput
-              keyboardType="number-pad"
-              maxLength={2}
-              style={styles.textInputStyle}
-              autoCapitalize="none"
-              autoCorrect={false}
-              onChangeText={(text) => setUserNumber(Number(text))}
-            />
+            <View>
+              <Text style={styles.textInputStyle}>{guess}</Text>
+            </View>
             <View style={styles.buttonContainer}>
-              <PrimaryButton>
+              <PrimaryButton
+                onPressFunction={() => {
+                  if (userNumber < guess) {
+                    setMaxValue(guess);
+                  } else {
+                    Alert.alert("Don't say Lie !");
+                  }
+                }}
+              >
                 <View
                   style={{
                     justifyContent: "center",
@@ -44,16 +60,19 @@ const StartGameScreen = ({ userNumber, setUserNumber, step, setStep }) => {
                     gap: 10,
                   }}
                 >
-                  <Text style={{ color: "yellow" }}>Reset</Text>
+                  <Text style={{ color: "yellow" }}>Lower</Text>
                   <Ionicons name="reload" size={15} color="yellow" />
                 </View>
               </PrimaryButton>
               <PrimaryButton
                 onPressFunction={() => {
-                  if (userNumber == null) {
-                    Alert.alert("The Number Can't Be Empty");
+                  if (userNumber > guess) {
+                    setMaxValue(guess);
+                    console.log(maxValue);
+                  } else if (userNumber == guess) {
+                    Alert.alert("Your guessed is Right");
                   } else {
-                    setStep(2);
+                    Alert.alert("Don't say lie");
                   }
                 }}
               >
@@ -65,7 +84,7 @@ const StartGameScreen = ({ userNumber, setUserNumber, step, setStep }) => {
                     gap: 8,
                   }}
                 >
-                  <Text style={{ color: "yellow" }}>Confirm</Text>
+                  <Text style={{ color: "yellow" }}>Higher</Text>
                   <Ionicons name="checkmark" size={24} color="yellow" />
                 </View>
               </PrimaryButton>
@@ -77,7 +96,7 @@ const StartGameScreen = ({ userNumber, setUserNumber, step, setStep }) => {
   );
 };
 
-export default StartGameScreen;
+export default GuessScreen;
 
 const styles = StyleSheet.create({
   inputContainer: {
@@ -103,8 +122,7 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     fontSize: 28,
     marginVertical: 15,
-    borderBottomColor: "#ca6f06",
-    borderBottomWidth: 2,
+    textAlign: "center",
   },
   buttonContainer: {
     flexDirection: "row",
