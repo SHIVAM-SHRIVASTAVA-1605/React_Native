@@ -3,6 +3,7 @@ import StartGameScreen from "./screens/StartGameScreen";
 import { useState } from "react";
 import GuessScreen from "./screens/GuessScreen";
 import { StatusBar } from "expo-status-bar";
+import GameOver from "./screens/GameOver";
 
 export default function App() {
   const [step, setStep] = useState(1);
@@ -18,6 +19,7 @@ export default function App() {
         />
       )}
       {step == 2 && <GuessScreen userNumber={userNumber} setStep={setStep} />}
+      {step == 3 && <GameOver setStep={setStep} />}
       <StatusBar hidden />
     </>
   );
