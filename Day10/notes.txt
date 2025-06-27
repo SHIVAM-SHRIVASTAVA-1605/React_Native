@@ -1,0 +1,12 @@
+context => 
+1. createcontext()
+2. providers
+3. usecontext()
+
+
+redux
+1. configuresStore()
+    - reducers
+        the reducers are the function which is used to change and update the state of functions
+2. slice / slices
+    - 
