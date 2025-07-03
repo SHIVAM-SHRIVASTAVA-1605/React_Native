@@ -4,12 +4,18 @@ import { useNavigation } from '@react-navigation/native'
 
 const CategoryScreen = () => {
     const navigation = useNavigation();
-    navigation.setOptions({
-        title: "Nothing"
-    });
   return (
     <View>
-      <Text>CategoryScreen</Text>
+      <View>
+        <View>
+          {
+            
+          }
+          <Text>
+
+          </Text>
+        </View>
+      </View>
     </View>
   )
 }

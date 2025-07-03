@@ -3,4 +3,5 @@
 -- call the open weather apis
 -- react native location, fetching longitude and latitude
 -- make a weather app
--- 
+-- redux thunk
+-- context and redux

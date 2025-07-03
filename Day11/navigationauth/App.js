@@ -4,46 +4,31 @@ import { useEffect, useState } from 'react';
 import AuthenticatedNavigator from './CustomNavigator/AuthenticatedNavigator';
 import UnAuthenticatedNavigator from './CustomNavigator/UnAuthenticatedNavigator';
 import AsyncStorage from "@react-native-async-storage/async-storage";
+import { useContext, UserContextProvider } from './context/userContext';
+import { UserContext } from './context/userContext';
 
 export default function App() {
-  const [isUserLoggedIn, setIsUserLoggedIn] = useState(false);
-  const [loading, setLoading] = useState(true);
-  async function getUser() {
-    try {
-      setLoading(true);
-      const token = await AsyncStorage.getItem("token");
-      if(token) {
-        setIsUserLoggedIn(true);
+  const { isUserLoggedIn, setIsUserLoggedIn, loading, setLoading, getUser} =
+    useContext(UserContext);
+    useEffect(() => {
+      if(getUser) {
+        getUser();
       }
-    } catch (error) {
-      console.log("Error occured while checking user");
-    } finally{
-      setLoading(false);
-    }
-  }
-  useEffect(() => { 
-  getUser();
-    },[] );
+    }, []);
 
     if(loading) {
-      return <View style={styles.loadingContainer}>
+      return 
       <Text>Loading...</Text>
-    </View>
     }
   return (
     <NavigationContainer>
         {isUserLoggedIn ? (<AuthenticatedNavigator 
-        isUserLoggedIn={isUserLoggedIn}
-        setIsUserLoggedIn={setIsUserLoggedIn}
-        getUser = {getUser}
       />) : 
       (<UnAuthenticatedNavigator 
-          isUserLoggedIn={isUserLoggedIn}
-          setIsUserLoggedIn={setIsUserLoggedIn}
-          getUser = {getUser}
       />
     )}
     </NavigationContainer>
+    </UserContextProvider>
   );
 }
 

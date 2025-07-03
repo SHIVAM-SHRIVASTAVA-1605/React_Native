@@ -1,0 +1,45 @@
+Notifications
+
+1. Local Notifications
+ - If app is installed and on the same devuce we can schedule the notification.
+ -> Remider - teells reminder on the certain time
+
+
+Two ways to work with react-native
+1. Expo => If using expo -> Too easy. -> Here all configuration is done in app.json
+2. Bare React-Native / React-Mative CLI => Too mych configuration - here a;; he configuration is not done in the app.json
+
+=> Notification => expo-notification
+    - schedule the notification
+
+Install
+    - npx expo install expo-notification.
+
+
+# Drawbacks
+
+Local Notifications
+    - App should always be running.
+
+
+
+Push Notifications
+    - Doesn't care bout app aunning status
+
+# app publishing
+
+1. expo cloud
+    - system does not matter, we can deploy both android | ios | all
+
+2. bare react native
+    - system => windows -> android -> ios x
+
+
+# React js vs Next js
+
+1. Library of js or framework react
+2. independednt, no set of rules or strict, we are not, independednt
+3. react router dom, seo need more config or no extra config seo is too easy
+4. folder structure or next router
+
+# seo
