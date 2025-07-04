@@ -1,0 +1,26 @@
+next js -> SSR + CSR
+reeact js -> CSR
+
+SSR -> Server Side Rendering
+CSR -> Client Side Rendering
+
+- next js have its own route
+    1. Page Router -> old version
+    2. App Router -> Latest
+
+
+# dynamic routing next js
+Ecommerce
+    - / => landing Page
+    - /Products => All prodicts - pen, pecil, etc...
+    - /Products/id => Pen details, etc
+
+# Route grouping in next js
+    - app 
+        - Home
+            - home/page.jsx
+            - layout.jsx
+        - dashboard
+            - layout.jsx
+    
+    
