@@ -1,0 +1,53 @@
+Dom Manipualtion
+    - getElementbyId
+    - getElememtsbyId
+    - querySelector
+    - 
+
+React
+    - what is react?
+        - react is javascript library, use to make the ui
+    
+    - differenece between library and frameworks?
+
+    - react fragments?
+
+    - Hooks in react?
+        - Hooks are function, starts with a keyword called use..
+        - useState, useEffect, useMemo, use Callback, useRef, useContext, useLayout Effect
+        - useState 1 function hota hai jo ki 1 array return krta hai, jo ki 2 cheez return krta hai variable and function
+        - useEffect is a function ascepts two parameter one is the callback function and other is the dependency array. if the dependecy array is empty callback function will run only one time but if it contain something then it will run multiple times
+        - syntax of the useEffect
+            - useEffect(()=> {
+
+            }, [] )
+
+    why react?
+    
+    life cycle method of react?
+        - compomemtDid mount, componentWill mount, componentWill Update
+    
+    memoization
+        - useCallback
+        - useMemo
+
+    lazy loading
+    
+    features of react
+        - single page application
+        - good user experience
+        - dynamic ui 
+        - SEO (Search engine optimization)
+        - 
+    
+    Dom actual vs dom virtual
+    
+    what are properties in the recat?
+
+    client side storages
+        - local storage
+        - cooking 
+        - session storage
+    
+    redux thunk
+        - 
